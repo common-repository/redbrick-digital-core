@@ -1,0 +1,19 @@
+.rbd-review-engine-display-button .dashicons {
+	top: 2px;
+	position: relative;
+	margin-right: 4px;
+}
+
+.rbd-review-engine-display-button .dashicons:before {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+.rbd-sync.rbd-rotate {
+	animation: rbd-rotate 1s linear infinite !important;
+}
+
+.rbd-pulse {
+	animation: rbd-pulse 1s linear 3 !important;
+}

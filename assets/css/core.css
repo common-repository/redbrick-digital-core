@@ -1,0 +1,410 @@
+.rbd-core-ui,
+.rbd-core-ui * {
+	box-sizing: border-box;
+}
+
+body:not(.wp-admin) .rbd-core-ui {
+	color: #333;
+	font-family: 'Montserrat';
+}
+
+.rbd-core-ui .rbd-center {
+	text-align: center;
+}
+
+.rbd-core-ui .rbd-normal {
+	font-weight: normal;
+}
+
+.rbd-core-ui .rbd-sync {
+    width: 14px;
+    display: inline-block;
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    line-height: 0;
+    transition: .25s all;
+    transform: rotate(0);
+}
+
+.rbd-core-ui .rbd-sync:hover {
+	transform: rotate(-180deg) scale(1.25);
+}
+
+.rbd-core-ui .rbd-sync svg {
+	fill: #0095ee;
+}
+
+/* Flex Styles */
+.rbd-core-ui [data-grid="flex"] {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.rbd-core-ui [data-grid="flex"] > *,
+.rbd-core-ui [data-grid="flex"][data-columns="1"] > * { flex: calc( 100% ); }
+.rbd-core-ui [data-grid="flex"][data-columns="2"] > * { flex: calc( 100% / 2 ); }
+.rbd-core-ui [data-grid="flex"][data-columns="3"] > * { flex: calc( 100% / 3 ); }
+.rbd-core-ui [data-grid="flex"][data-columns="4"] > * { flex: calc( 100% / 4 ); }
+
+/* CSS Grid Styles */
+.rbd-core-ui [data-grid="grid"] {
+	display: grid;
+	grid-gap: 0;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.rbd-core-ui [data-grid="grid"] > *,
+.rbd-core-ui [data-grid="grid"][data-columns="1"] > *  { grid-column: auto / span 12 }
+.rbd-core-ui [data-grid="grid"][data-columns="2"] > *  { grid-column: auto / span 6 }
+.rbd-core-ui [data-grid="grid"][data-columns="3"] > *  { grid-column: auto / span 4 }
+.rbd-core-ui [data-grid="grid"][data-columns="4"] > *  { grid-column: auto / span 3 }
+
+.rbd-core-ui [data-grid="grid"] [data-col-span="1"]  { grid-column: auto / span 1 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="2"]  { grid-column: auto / span 2 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="3"]  { grid-column: auto / span 3 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="4"]  { grid-column: auto / span 4 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="5"]  { grid-column: auto / span 5 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="6"]  { grid-column: auto / span 6 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="7"]  { grid-column: auto / span 7 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="8"]  { grid-column: auto / span 8 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="9"]  { grid-column: auto / span 9 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="10"] { grid-column: auto / span 10 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="11"] { grid-column: auto / span 11 }
+.rbd-core-ui [data-grid="grid"] [data-col-span="12"] { grid-column: auto / span 12 }
+
+.rbd-core-ui [data-grid="grid"] [data-row-span="2"] { grid-row: auto / span 2 }
+.rbd-core-ui [data-grid="grid"] [data-row-span="3"] { grid-row: auto / span 3 }
+.rbd-core-ui [data-grid="grid"] [data-row-span="4"] { grid-row: auto / span 4 }
+.rbd-core-ui [data-grid="grid"] [data-row-span="5"] { grid-row: auto / span 5 }
+.rbd-core-ui [data-grid="grid"] [data-row-span="6"] { grid-row: auto / span 6 }
+
+
+.rbd-core-ui button,
+.rbd-core-ui .rbd-button {
+	background: #0095ee;
+	color: #fff;
+	border: 1px solid #0073cc;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 4px 12px -5px rgba(0,0,0,.5);
+	padding: 12px 30px;
+	cursor: pointer;
+	outline: none;
+	transition: .1s all ease-out;
+	vertical-align: top;
+	text-decoration: none;
+	height: auto;
+	line-height: 1;
+}
+
+.rbd-core-ui button.rbd-secondary,
+.rbd-core-ui .rbd-button.rbd-secondary {
+	background: #f4f4f4;
+	border-color: #c1c1c1;
+	color: #333;
+	box-shadow: inset 0 1px 0 #fff, 0 4px 8px -6px rgba(0,0,0,.5);
+}
+
+.rbd-core-ui button.rbd-small,
+.rbd-core-ui .rbd-button.rbd-small {
+	padding: 6px 15px;
+	font-weight: 300;
+	font-size: initial;
+} 
+
+.rbd-core-ui button:hover,
+.rbd-core-ui .rbd-button:hover {
+	background: #11a6ff;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 2px 8px -6px rgba(0,0,0,.5);
+	text-decoration: none;
+}
+
+.rbd-core-ui button.rbd-secondary:hover,
+.rbd-core-ui .rbd-button.rbd-secondary:hover {
+	background: #fcfcfc;
+}
+
+.rbd-core-ui .rbd-currently-loading,
+.rbd-core-ui button.rbd-currently-loading,
+.rbd-core-ui .rbd-button.rbd-currently-loading {
+	background: transparent;
+	padding: 0;
+	box-shadow: none;
+	font-size: 0;
+	min-width: 18px;
+	min-height: 18px;
+	border-radius: 100%;
+	border: 4px solid rgba(0,0,0,.1);
+	border-top-color: #0095ee;
+	animation: 1s rbd-rotate linear infinite;
+}
+
+.rbd-score svg { fill: rgba(0,0,0,.225); }
+.rbd-score[data-score="1"] svg:nth-child(1),
+.rbd-score[data-score="2"] svg:nth-child(-n+2),
+.rbd-score[data-score="3"] svg:nth-child(-n+3),
+.rbd-score[data-score="4"] svg:nth-child(-n+4),
+.rbd-score[data-score="5"] svg:nth-child(-n+5) { fill: #ffbb58; }
+
+.rbd-core-ui #rbd-popup-container {
+	height: 0;
+	overflow: hidden;
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*opacity: 0;*/
+	background: rgba(0,0,0,0);
+	transition: .5s background ease-out;
+	width: 100%;
+}
+
+.rbd-core-ui #rbd-popup-container.rbd-shown {
+	height: 100%;
+	width: 100%;
+	/*opacity: 1;*/
+	background: rgba(0,0,0,.5);
+}
+
+.rbd-core-ui #rbd-popup-container .rbd-popup-content:not(.rbd-review-engine-display) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: scale(.5) translate(-50%,-50%); /* Gives blurry 1px borders since they're halfway between pixels */
+	transform: scale(.5) translate(calc( -50% - .5px ), calc( -50% - .5px ) ); /* Hack I came up with to fix that */
+	transform-origin: top left;
+	background: #fff;
+	padding: 20px 30px;
+	border: 1px solid #000;
+	max-height: calc( 100vh - 80px );
+	transition: .25s transform cubic-bezier(0.35,-0.35, 0.67, 1.35);
+}
+
+.rbd-core-ui #rbd-popup-container.rbd-shown .rbd-popup-content:not(.rbd-review-engine-display) {
+	transform: scale(1) translate(calc( -50% - .5px ), calc( -50% - .5px ) );
+}
+
+.rbd-core-ui #rbd-popup-container .rbd-popup-content.rbd-review-engine-display {
+	position: absolute;
+	transform-origin: top left;
+	background: #fff;
+	padding: 20px 30px;
+	border-radius: 4px;
+	/*border: 1px solid #000;*/
+	max-height: calc( 100vh - 80px );
+	transition: .25s transform cubic-bezier(0.35,-0.35, 0.67, 1.35);
+	transform: scale(1.1);
+}
+
+.rbd-core-ui #rbd-popup-container .rbd-popup-content .rbd-content::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.rbd-core-ui #rbd-popup-container .rbd-popup-content .rbd-content::-webkit-scrollbar {
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+.rbd-core-ui #rbd-popup-container .rbd-popup-content .rbd-content::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 0 1px #0073cc, inset -1px 1px 0 1px rgba(255,255,255,.35);
+	background-color: #0095ee;
+}
+
+.rbd-core-ui .rbd-popup-close {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	background: #fff;
+	width: 26px;
+	height: 26px;
+	border-radius: 100%;
+	box-shadow: inset 0 0 1px 1px #000, -2px 2px 7px -2px rgba(0,0,0,.8);
+	cursor: pointer;
+	transition: .2s all ease-out;
+	border: 1px solid #fff;
+}
+
+.rbd-core-ui .rbd-popup-close:hover svg {
+	fill: #0095ee;
+}
+
+/* Reputation Breakdown */
+.rbd-core-ui .rbd-breakdown-container {
+	max-height: 0;
+	min-width: 400px;
+	opacity: 0;
+	background: #fff;
+	box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.5);
+	z-index: 100;
+	overflow: hidden;
+	transition: .5s all ease-out;
+	display: inline-block;
+	border: 1px solid #0095ee;
+	border-radius: 3px;
+	margin-top: 10px;
+	position: absolute;
+}
+
+.rbd-core-ui .rbd-breakdown-container.rbd-scaleIn {
+	max-height: 250px;
+	opacity: 1;
+}
+
+.rbd-core-ui .rbd-breakdown-container > div {
+	padding: 10px 20px;
+}
+
+.rbd-core-ui .rbd-breakdown-container > div:first-child {
+	padding-top: 20px;
+}
+
+.rbd-core-ui .rbd-breakdown-container > div:last-child {
+	padding-bottom: 20px;
+}
+
+.rbd-core-ui .rbd-breakdown-container svg {
+	width: 16px;
+}
+
+.rbd-core-ui .rbd-breakdown-container .rbd-bar {
+	width: 200px;
+	width: calc( 100% - 80px - 38px - 45px );
+	height: 12px;
+	background: linear-gradient(#f9f9f9, #f0f0f0);
+	border-radius: 10px;
+	border: 1px solid #eee;
+	display: inline-block;
+	margin-left: 4px;
+	overflow: hidden;
+}
+
+.rbd-core-ui .rbd-breakdown-container .rbd-bar:after {
+	content: "";
+	display: block;
+	height: 100%;
+	width: var(--width);
+	background: #0095ee;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+}
+
+.rbd-core-ui .rbd-breakdown-container .rbd-percent {
+	font-size: 14px;
+	vertical-align: top;
+	margin-left: 8px;
+	color: #0095ee;
+	font-weight: 600;
+}
+
+.rbd-core-ui .rbd-breakdown-container .rbd-percent.rbd-count {
+	color: #333;
+	opacity: .5;
+	font-weight: 300;
+}
+
+@keyframes rbd-rotate {
+	from { transform: rotate( 0deg ); }
+	to	 { transform: rotate( 360deg ); }
+}
+
+@keyframes rbd-pulse {
+	from {
+		box-shadow: none;
+    	border-color: #ddd;
+	}
+	50%  {
+		box-shadow: 0 1px 20px -4px #0095ee;
+    	border-color: #0095ee;
+	}
+	to   {
+		box-shadow: none;
+    	border-color: #ddd;
+	}
+}
+
+/* Admin Specific */
+.wp-admin .rbd-core-ui #rbd-popup-container .rbd-popup-content {
+	transform: scale(.5);
+	transform-origin: center;
+}
+
+.wp-admin .rbd-core-ui #rbd-popup-container.rbd-shown .rbd-popup-content {
+	transform: scale(1);
+	left: 0;
+	right: 0;
+	width: 600px;
+	max-width: calc( 100vw - 60px );
+	margin: 0 auto;
+	top: 64px;
+}
+
+.wp-admin .rbd-core-ui #rbd-popup-container {
+	position: fixed;
+	width: 100vw;
+}
+
+.wp-admin .rbd-core-ui [data-columns] {
+	padding: 5px;
+}
+
+.wp-admin .rbd-core-ui [data-columns] label {
+	margin: 0 5px 5px;
+}
+
+.wp-admin .rbd-core-ui [data-columns] label span {
+	display: inline-block;
+	margin-bottom: 4px;
+	font-weight: 500;
+}
+
+.wp-admin .rbd-core-ui [data-grid="grid"] {
+	padding: 0;
+	margin: 10px 0;	
+}
+
+.wp-admin .rbd-core-ui [data-columns="3"] label {
+	flex-basis: calc( 100% / 3 - 30px );
+}
+
+.wp-admin .rbd-core-ui [data-columns="3"] label:nth-child(1n+4){
+	margin-top: 10px;
+}
+
+.wp-admin .rbd-core-ui [data-columns="4"] label {
+	flex-basis: calc( 100% / 4 - 40px );
+}
+
+@media (max-width: 1100px){
+	/* Collapse all Flex and CSS Grids to 2 columns */
+	.rbd-core-ui [data-grid="flex"] > *,
+	.rbd-core-ui [data-grid="flex"][data-columns] > * { flex: calc( 100% / 2 ); }
+
+	.rbd-core-ui [data-grid="grid"] > *,
+	.rbd-core-ui [data-grid="grid"][data-columns] > * { grid-column: auto / span 6; }
+
+	.wp-admin .rbd-core-ui [data-columns="4"] label {
+		flex-basis: calc( 100% / 2 - 20px );
+	}
+}
+
+@media (max-width: 768px){	
+	/* Collapse all Flex and CSS Grids to 1 column */
+	.rbd-core-ui [data-grid="flex"] > *,
+	.rbd-core-ui [data-grid="flex"][data-columns] > * { flex: 100% ; }
+
+	.rbd-core-ui [data-grid="grid"] > *,
+	.rbd-core-ui [data-grid="grid"][data-columns] > * { grid-column: auto / span 12; }
+
+	.wp-admin .rbd-core-ui [data-columns] label {
+		flex-basis: calc( 100% );
+	}
+}
+
+@keyframes review-engine-loader{from{transform:scale(0) translate(-50%,-50%);opacity:1}to{transform:scale(1) translate(-50%,-50%);opacity:0}}@keyframes review-engine-loader-container{from{transform:rotate(0)}to{transform:rotate(360deg)}}.review-engine-loader-container,.review-engine-loader-container *{box-sizing:border-box}.review-engine-loader-container{margin:0 auto;width:72px;height:72px;position:relative}.review-engine-loader-container:before{content:"";display:block;position:absolute;width:64px;height:64px;border-radius:50%;border:4px solid rgba(0,149,238,.25);border-top-color:#0095ee;animation:1s review-engine-loader-container forwards linear infinite}.review-engine-loader-container svg{position:absolute;width:48px;stroke:#fff;top:50%;left:50%;filter:drop-shadow( 1px 1px 1px rgba(0, 0, 0, .1) );fill:#ffbb58;transform-origin:top left;animation:1s review-engine-loader forwards linear infinite}
+.review-source + span {margin-left: 1em;} .review-source {position: absolute;transform: translate(20px, 5px);}.review-source:before {content: "";width: 16px;height: 16px;background-image: url(https://whirlocal.io/assets/img/third-party.png);background-repeat: no-repeat;position: absolute;left: -20px;}.review-source.sourceId-10000:before {background-position: 0 0}.review-source.sourceId-10010:before {background-position: 0 -16px}.review-source.sourceId-10020:before {background-position: 0 -32px}.review-source.sourceId-10040:before {background-position: 0 -48px}.review-source.sourceId-10050:before {background-position: 0 -64px}.review-source.sourceId-10060:before {background-position: 0 -80px}.review-source.sourceId-10070:before {background-position: 0 -96px}.review-source.sourceId-10080:before {background-position: 0 -112px}.review-source.sourceId-10090:before {background-position: 0 -128px}.review-source.sourceId-10100:before {background-position: 0 -144px}.review-source.sourceId-10110:before {background-position: 0 -160px}.review-source.sourceId-10120:before {background-position: 0 -176px}.review-source.sourceId-10200:before {background-position: 0 -192px}.review-source.sourceId-10310:before {background-position: 0 -208px}.review-source.sourceId-10320:before {background-position: 0 -224px}.review-source.sourceId-10330:before {background-position: 0 -240px}.review-source.sourceId-10340:before {background-position: 0 -256px}.review-source.sourceId-10350:before {background-position: 0 -272px}.review-source.sourceId-10360:before {background-position: 0 -288px}.review-source.sourceId-10370:before {background-position: 0 -304px}.review-source.sourceId-10380:before {background-position: 0 -320px}.review-source.sourceId-10400:before {background-position: 0 -336px}.review-source.sourceId-10410:before {background-position: 0 -352px}.review-source.sourceId-10420:before {background-position: 0 -368px}.review-source.sourceId-10430:before {background-position: 0 -384px}.review-source.sourceId-10440:before {background-position: 0 -400px}.review-source.sourceId-10450:before {background-position: 0 -416px}.review-source.sourceId-10460:before {background-position: 0 -432px}.review-source.sourceId-10470:before {background-position: 0 -448px}.review-source.sourceId-10480:before {background-position: 0 -464px}.review-source.sourceId-10490:before {background-position: 0 -480px}.review-source.sourceId-10500:before {background-position: 0 -496px}.review-source.sourceId-10510:before {background-position: 0 -512px}.review-source.sourceId-10520:before {background-position: 0 -528px}.review-source.sourceId-10530:before {background-position: 0 -544px}.review-source.sourceId-10540:before {background-position: 0 -560px}.review-source.sourceId-10560:before {background-position: 0 -576px}.review-source.sourceId-10570:before {background-position: 0 -592px}.review-source.sourceId-10580:before {background-position: 0 -608px}.review-source.sourceId-10590:before {background-position: 0 -624px}.review-source.sourceId-10600:before {background-position: 0 -640px}.review-source.sourceId-10610:before {background-position: 0 -656px}.review-source.sourceId-10630:before {background-position: 0 -672px}.review-source.sourceId-10640:before {background-position: 0 -688px}.review-source.sourceId-10650:before {background-position: 0 -704px}.review-source.sourceId-10660:before {background-position: 0 -720px}.review-source.sourceId-10670:before {background-position: 0 -736px}.review-source.sourceId-10680:before {background-position: 0 -752px}.review-source.sourceId-10690:before {background-position: 0 -768px}.review-source.sourceId-10700:before {background-position: 0 -784px}.review-source.sourceId-10710:before {background-position: 0 -800px}.review-source.sourceId-10720:before {background-position: 0 -816px}.review-source.sourceId-10730:before {background-position: 0 -832px}.review-source.sourceId-10740:before {background-position: 0 -848px}.review-source.sourceId-10750:before {background-position: 0 -864px}.review-source.sourceId-10760:before {background-position: 0 -880px}.review-source.sourceId-10770:before {background-position: 0 -896px}.review-source.sourceId-10780:before {background-position: 0 -912px}.review-source.sourceId-10790:before {background-position: 0 -928px}.review-source.sourceId-10800:before {background-position: 0 -944px}.review-source.sourceId-10810:before {background-position: 0 -960px}.review-source.sourceId-10820:before {background-position: 0 -976px}.review-source.sourceId-10830:before {background-position: 0 -992px}.review-source.sourceId-10840:before {background-position: 0 -1008px}.review-source.sourceId-10850:before {background-position: 0 -1024px}.review-source.sourceId-10860:before {background-position: 0 -1040px}.review-source.sourceId-10870:before {background-position: 0 -1056px}.review-source.sourceId-10880:before {background-position: 0 -1072px}.review-source.sourceId-10890:before {background-position: 0 -1088px}.review-source.sourceId-10900:before {background-position: 0 -1104px}.review-source.sourceId-10910:before {background-position: 0 -1120px}.review-source.sourceId-10920:before {background-position: 0 -1136px}.review-source.sourceId-10930:before {background-position: 0 -1152px}.review-source.sourceId-10940:before {background-position: 0 -1168px}.review-source.sourceId-10950:before {background-position: 0 -1184px}.review-source.sourceId-10960:before {background-position: 0 -1200px}.review-source.sourceId-10970:before {background-position: 0 -1216px}.review-source.sourceId-10980:before {background-position: 0 -1232px}.review-source.sourceId-10990:before {background-position: 0 -1248px}.review-source.sourceId-11000:before {background-position: 0 -1264px}.review-source.sourceId-11010:before {background-position: 0 -1280px}.review-source.sourceId-11020:before {background-position: 0 -1296px}.review-source.sourceId-11030:before {background-position: 0 -1312px}.review-source.sourceId-11040:before {background-position: 0 -1328px}.review-source.sourceId-11050:before {background-position: 0 -1344px}.review-source.sourceId-11060:before {background-position: 0 -1360px}.review-source.sourceId-11070:before {background-position: 0 -1376px}.review-source.sourceId-11080:before {background-position: 0 -1392px}.review-source.sourceId-11090:before {background-position: 0 -1408px}.review-source.sourceId-11100:before {background-position: 0 -1424px}.review-source.sourceId-11110:before {background-position: 0 -1440px}.review-source.sourceId-11120:before {background-position: 0 -1456px}.review-source.sourceId-11130:before {background-position: 0 -1472px}.review-source.sourceId-11140:before {background-position: 0 -1488px}.review-source.sourceId-11150:before {background-position: 0 -1504px}.review-source.sourceId-11160:before {background-position: 0 -1520px}.review-source.sourceId-11170:before {background-position: 0 -1536px}.review-source.sourceId-11180:before {background-position: 0 -1552px}.review-source.sourceId-11190:before {background-position: 0 -1568px}.review-source.sourceId-11200:before {background-position: 0 -1584px}.review-source.sourceId-11210:before {background-position: 0 -1600px}.review-source.sourceId-11220:before {background-position: 0 -1616px}.review-source.sourceId-11230:before {background-position: 0 -1632px}.review-source.sourceId-11240:before {background-position: 0 -1648px}.review-source.sourceId-11250:before {background-position: 0 -1664px}.review-source.sourceId-11260:before {background-position: 0 -1680px}.review-source.sourceId-11270:before {background-position: 0 -1696px}.review-source.sourceId-11280:before {background-position: 0 -1712px}.review-source.sourceId-11290:before {background-position: 0 -1728px}.review-source.sourceId-11300:before {background-position: 0 -1744px}.review-source.sourceId-11310:before {background-position: 0 -1760px}.review-source.sourceId-11320:before {background-position: 0 -1776px}.review-source.sourceId-11330:before {background-position: 0 -1792px}.review-source.sourceId-11340:before {background-position: 0 -1808px}.review-source.sourceId-11350:before {background-position: 0 -1824px}.review-source.sourceId-11360:before {background-position: 0 -1840px}.review-source.sourceId-11370:before {background-position: 0 -1856px}.review-source.sourceId-11380:before {background-position: 0 -1872px}.review-source.sourceId-11390:before {background-position: 0 -1888px}.review-source.sourceId-11400:before {background-position: 0 -1904px}.review-source.sourceId-11410:before {background-position: 0 -1920px}.review-source.sourceId-11420:before {background-position: 0 -1936px}.review-source.sourceId-11430:before {background-position: 0 -1952px}.review-source.sourceId-11440:before {background-position: 0 -1968px}.review-source.sourceId-11450:before {background-position: 0 -1984px}.review-source.sourceId-11460:before {background-position: 0 -2000px}.review-source.sourceId-11470:before {background-position: 0 -2016px}.review-source.sourceId-11480:before {background-position: 0 -2032px}.review-source.sourceId-11490:before {background-position: 0 -2048px}.review-source.sourceId-11500:before {background-position: 0 -2064px}.review-source.sourceId-11510:before {background-position: 0 -2080px}.review-source.sourceId-11520:before {background-position: 0 -2096px}.review-source.sourceId-11530:before {background-position: 0 -2112px}.review-source.sourceId-11540:before {background-position: 0 -2128px}.review-source.sourceId-11550:before {background-position: 0 -2144px}.review-source.sourceId-11560:before {background-position: 0 -2160px}.review-source.sourceId-11570:before {background-position: 0 -2176px}.review-source.sourceId-11580:before {background-position: 0 -2192px}.review-source.sourceId-11590:before {background-position: 0 -2208px}.review-source.sourceId-11600:before {background-position: 0 -2225px}.review-source.sourceId-11610:before {background-position: 0 -2241px}.review-source.sourceId-11630:before {background-position: 0 -2257px}.review-source.sourceId-11640:before {background-position: 0 -2273px}.review-source.sourceId-11650:before {background-position: 0 -2289px}.review-source.sourceId-11660:before {background-position: 0 -2305px}.review-source.sourceId-11670:before {background-position: 0 -2321px}.review-source.sourceId-11680:before {background-position: 0 -2337px}.review-source.sourceId-11690:before {background-position: 0 -2353px}.review-source.sourceId-11700:before {background-position: 0 -2369px}.review-source.sourceId-11710:before {background-position: 0 -2385px}.review-source.sourceId-11720:before {background-position: 0 -2401px}.review-source.sourceId-11730:before {background-position: 0 -2417px}.review-source.sourceId-11740:before {background-position: 0 -2433px}.review-source.sourceId-11750:before {background-position: 0 -2449px}.review-source.sourceId-11760:before {background-position: 0 -2465px}.review-source.sourceId-12000:before {background-position: 0 -2481px}.review-source.sourceId-12100:before {background-position: 0 -2497px}.review-source.sourceId-12110:before {background-position: 0 -2513px}.review-source.sourceId-12120:before {background-position: 0 -2529px}.review-source.sourceId-12130:before {background-position: 0 -2545px}.review-source.sourceId-12140:before {background-position: 0 -2561px}.review-source.sourceId-12150:before {background-position: 0 -2578px}.review-source.sourceId-12160:before {background-position: 0 -2594px}.review-source.sourceId-12170:before {background-position: 0 -2610px}.review-source.sourceId-12180:before {background-position: 0 -2626px}.review-source.sourceId-12190:before {background-position: 0 -2642px}.review-source.sourceId-12200:before {background-position: 0 -2658px}.review-source.sourceId-12210:before {background-position: 0 -2674px}.review-source.sourceId-12220:before {background-position: 0 -2690px}.review-source.sourceId-12230:before {background-position: 0 -2706px}.review-source.sourceId-12240:before {background-position: 0 -2722px}.review-source.sourceId-12250:before {background-position: 0 -2738px}.review-source.sourceId-12260:before {background-position: 0 -2754px}.review-source.sourceId-12270:before {background-position: 0 -2770px}.review-source.sourceId-12280:before {background-position: 0 -2786px}.review-source.sourceId-12290:before {background-position: 0 -2802px}.review-source.sourceId-12300:before {background-position: 0 -2818px}.review-source.sourceId-12310:before {background-position: 0 -2834px}.review-source.sourceId-12320:before {background-position: 0 -2850px}.review-source.sourceId-12330:before {background-position: 0 -2866px}.review-source.sourceId-12340:before {background-position: 0 -2882px}.review-source.sourceId-12350:before {background-position: 0 -2898px}.review-source.sourceId-12400:before {background-position: 0 -2914px}.review-source.sourceId-12420:before {background-position: 0 -2930px}.review-source.sourceId-12430:before {background-position: 0 -2946px}.review-source.sourceId-12440:before {background-position: 0 -2962px}.review-source.sourceId-12450:before {background-position: 0 -2971px}.review-source.sourceId-12460:before {background-position: 0 -2987px}.review-source.sourceId-12470:before {background-position: 0 -3003px}.review-source.sourceId-12480:before {background-position: 0 -3019px}.review-source.sourceId-12490:before {background-position: 0 -3035px}.review-source.sourceId-12500:before {background-position: 0 -3051px}.review-source.sourceId-12510:before {background-position: 0 -3067px}.review-source.sourceId-12520:before {background-position: 0 -3083px}.review-source.sourceId-12530:before {background-position: 0 -3099px}.review-source.sourceId-12540:before {background-position: 0 -3115px}.review-source.sourceId-12550:before {background-position: 0 -3131px}.review-source.sourceId-12560:before {background-position: 0 -3147px}.review-source.sourceId-12570:before {background-position: 0 -3163px}.review-source.sourceId-12580:before {background-position: 0 -3179px}.review-source.sourceId-12590:before {background-position: 0 -3195px}.review-source.sourceId-12600:before {background-position: 0 -3211px}.review-source.sourceId-12610:before {background-position: 0 -3227px}.review-source.sourceId-12620:before {background-position: 0 -3243px}.review-source.sourceId-12630:before {background-position: 0 -3259px}.review-source.sourceId-12640:before {background-position: 0 -3275px}.review-source.sourceId-12650:before {background-position: 0 -3291px}.review-source.sourceId-12660:before {background-position: 0 -3307px}.review-source.sourceId-12670:before {background-position: 0 -3323px}.review-source.sourceId-12680:before {background-position: 0 -3339px}.review-source.sourceId-12690:before {background-position: 0 -3355px}.review-source.sourceId-12700:before {background-position: 0 -3371px}.review-source.sourceId-12710:before {background-position: 0 -3387px}.review-source.sourceId-12720:before {background-position: 0 -3403px}.review-source.sourceId-12730:before {background-position: 0 -3419px}.review-source.sourceId-12740:before {background-position: 0 -3435px}.review-source.sourceId-12770:before {background-position: 0 -3451px}.review-source.sourceId-12780:before {background-position: 0 -3467px}.review-source.sourceId-12790:before {background-position: 0 -3483px}.review-source.sourceId-12800:before {background-position: 0 -3499px}.review-source.sourceId-12810:before {background-position: 0 -3515px}.review-source.sourceId-12820:before {background-position: 0 -3531px}.review-source.sourceId-12830:before {background-position: 0 -3547px}.review-source.sourceId-12840:before {background-position: 0 -3563px}.review-source.sourceId-12850:before {background-position: 0 -3579px}.review-source.sourceId-12860:before {background-position: 0 -3595px}.review-source.sourceId-12870:before {background-position: 0 -3611px}.review-source.sourceId-12880:before {background-position: 0 -3627px}.review-source.sourceId-12890:before {background-position: 0 -3643px}.review-source.sourceId-12900:before {background-position: 0 -3659px}.review-source.sourceId-12910:before {background-position: 0 -3675px}.review-source.sourceId-12920:before {background-position: 0 -3691px}.review-source.sourceId-12930:before {background-position: 0 -3707px}.review-source.sourceId-12940:before {background-position: 0 -3723px}.review-source.sourceId-12950:before {background-position: 0 -3739px}.review-source.sourceId-12960:before {background-position: 0 -3755px}.review-source.sourceId-12970:before {background-position: 0 -3771px}.review-source.sourceId-12980:before {background-position: 0 -3787px}.review-source.sourceId-12990:before {background-position: 0 -3803px}.review-source.sourceId-13000:before {background-position: 0 -3819px}.review-source.sourceId-13010:before {background-position: 0 -3835px}.review-source.sourceId-13020:before {background-position: 0 -3851px}.review-source.sourceId-13030:before {background-position: 0 -3867px}.review-source.sourceId-13040:before {background-position: 0 -3883px}.review-source.sourceId-13050:before {background-position: 0 -3899px}.review-source.sourceId-13060:before {background-position: 0 -3915px}.review-source.sourceId-13070:before {background-position: 0 -3931px}.review-source.sourceId-13080:before {background-position: 0 -3947px}.review-source.sourceId-13090:before {background-position: 0 -3963px}.review-source.sourceId-13100:before {background-position: 0 -3979px}.review-source.sourceId-13110:before {background-position: 0 -3995px}.review-source.sourceId-13120:before {background-position: 0 -4011px}.review-source.sourceId-13130:before {background-position: 0 -4027px}.review-source.sourceId-13140:before {background-position: 0 -4043px}.review-source.sourceId-13150:before {background-position: 0 -4059px}.review-source.sourceId-13160:before {background-position: 0 -4075px}.review-source.sourceId-13170:before {background-position: 0 -4091px}.review-source.sourceId-13180:before {background-position: 0 -4331px}.review-source.sourceId-13190:before {background-position: 0 -4347px}.review-source.sourceId-13200:before {background-position: 0 -4363px}
+.review-source.x:before {background-image:none;} .review-source.x svg { position: relative; transform: translate(-28px, -8px); }

@@ -1,0 +1,206 @@
+/* Reputation Overview/Header */
+.rbd-review-engine-display .rbd-aggregate {
+	margin-right: 8px;
+}
+
+.rbd-review-engine-display .rbd-header {
+	z-index: 101;
+}
+
+.rbd-review-engine-display .rbd-header .rbd-review-count {
+	opacity: .5;
+	transform: scale(.65);
+	transform-origin: left;
+	display: inline-block;
+}
+
+.rbd-review-engine-display .rbd-aggregate-container {
+	position: relative;
+	display: inline-block;
+}
+
+.rbd-review-engine-display .rbd-aggregate-container svg {
+	width: 28px;
+	fill: rgba(0,0,0,.1);
+	vertical-align: baseline;
+}
+
+.rbd-review-engine-display .rbd-aggregate-container .rbd-earned {
+	position: absolute;
+	left: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	filter: drop-shadow( 1px 1px 1px rgba(0,0,0,.1) );
+	stroke: #fff;
+}
+
+.rbd-review-engine-display .rbd-aggregate-container .rbd-earned svg {
+	fill: #ffbb58;
+}
+
+/* Reviews Grid Section */
+.rbd-review-engine-display .rbd-review-grid {
+	/*margin: 0 -30px;*/
+}
+
+.rbd-review-engine-display .rbd-review-grid:hover .rbd-review {
+	/* opacity: .6; */
+	background: rgba(0,0,0,.01);
+}
+
+.rbd-review-engine-display .rbd-review-grid:hover .rbd-review:hover {
+	opacity: 1;
+}
+
+.rbd-review-engine-display .rbd-review {
+	padding: 20px 30px 25px;
+	position: relative;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.rbd-review-engine-display .rbd-review,
+.rbd-review-engine-display .rbd-review * {
+	transition: .2s all ease-out;
+}
+
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:hover {
+	background: #fff;
+	z-index: 10;
+	box-shadow: 0 8px 45px -12px rgba(0,0,0,.5);
+	cursor: default;
+}
+
+.rbd-review-engine-display.rbd-3d-effects:not(.rbd-popup-content) .rbd-review:hover {
+	transform: scale(1.1);
+}
+
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:before,
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:after {
+	visibility: hidden;
+	opacity: 0;
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	transition: .2s all ease-out;
+}
+
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:after {
+	content: "";
+	bottom: 0;
+	height: 4px;
+	background: transparent;
+}
+
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:before {
+	content: attr(data-meta);
+	position: absolute;
+	bottom: 4px;
+	text-align: center;
+	font-size: 12px;
+	color: #565656;
+}
+
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:hover:before {
+	visibility: visible;
+	opacity: 1;
+}
+
+.rbd-review-engine-display:not(.rbd-popup-content) .rbd-review:hover:after {
+	visibility: visible;
+	opacity: 1;
+	background: #0095ee;
+}
+
+.rbd-review-engine-display .rbd-gravatar {
+	border-radius: 100%;
+	width: 56px;
+	float: left;
+	margin-right: 10px;
+}
+
+.rbd-review-engine-display .rbd-review:hover .rbd-gravatar {
+	opacity: 1;
+}
+
+.rbd-review-engine-display .rbd-review a:not(.rbd-button) {
+	color: transparent;
+	float: right;
+	display: block;
+	text-align: center;
+	width: 100%;
+	position: relative;
+	outline: none;
+	border: none;
+	color: #0095ee !important;
+    box-shadow: none !important;
+    font-weight: 600
+}
+
+.rbd-review-engine-display .rbd-review a:hover,
+.rbd-review-engine-display .rbd-review a:focus {
+	text-decoration: none;
+}
+
+.rbd-review-engine-display h3.rbd-heading {
+	font-size: 24px;
+	margin: 0 0 8px;
+	padding: 0;
+}
+
+.rbd-review-engine-display svg {
+	width: 24px;
+}
+
+.rbd-review-engine-display .rbd-content {
+	font-size: 18px;
+	line-height: 1.612;
+	margin: 4px 0 0;
+	max-height: 340px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.rbd-popup-content.rbd-review-engine-display .rbd-review {
+	/*max-width: 500px;*/
+	padding: 0;
+}
+
+.rbd-popup-content.rbd-review-engine-display .rbd-review a {
+	float: none;
+	color: #fff;
+	display: inline-block;
+	width: auto;
+	margin: 0 auto;
+}
+
+.rbd-popup-content.rbd-review-engine-display .rbd-review-meta {
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	color: #565656;
+	display: block;
+}
+
+.rbd-popup-content.rbd-review-engine-display .rbd-temp-highlight {
+	animation: 2.5s rbd-temp-highlight linear forwards;
+}
+
+@keyframes rbd-temp-highlight {
+	from {
+		background: rgb(0, 149, 238, .25);
+	}
+	60% {
+		background: rgb(0, 149, 238, .25);	
+	}
+	to {
+		background: transparent;
+	}
+}
+
+@media (max-width: 768px){
+	.rbd-review-engine-display .rbd-review-grid {
+		margin: 0;
+	}
+}

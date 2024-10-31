@@ -1,0 +1,96 @@
+/* Reputation Overview/Header */
+.rbd-social-proof .rbd-header {
+	z-index: 101;
+	margin: 0;
+	position: relative;
+}
+
+.rbd-social-proof .rbd-header .rbd-review-count {
+	opacity: .5;
+	transform: scale(.65);
+	transform-origin: left;
+	display: inline-block;
+}
+
+.rbd-social-proof .rbd-aggregate-container {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.rbd-social-proof .rbd-aggregate-container svg {
+	width: 28px;
+	fill: rgba(0,0,0,.1);
+	vertical-align: baseline;
+}
+
+.rbd-social-proof .rbd-aggregate-container .rbd-earned {
+	position: absolute;
+	left: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	filter: drop-shadow( 1px 1px 1px rgba(0,0,0,.1) );
+	stroke: #fff;
+}
+
+.rbd-social-proof .rbd-aggregate-container .rbd-earned svg {
+	fill: #ffbb58;
+}
+
+.rbd-social-proof .rbd-breakdown-container {
+	margin-top: 0;
+	min-width: 250px;
+	max-width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% - 1px);
+    text-align: left;
+}
+
+.rbd-social-proof .rbd-header:hover .rbd-breakdown-container {
+	max-height: 250px;
+	opacity: 1;
+}
+
+.rbd-social-proof .rbd-breakdown-container svg {
+	max-width: 12px;
+}
+
+.rbd-social-proof .rbd-breakdown-container .rbd-bar {
+	width: calc( 100% - 60px - 68px );
+}
+
+.rbd-social-proof .rbd-breakdown-container .rbd-percent {
+	font-size: 12px;
+	vertical-align: middle;
+	margin-left: 2px;
+	margin-right: -2px;
+}
+
+.rbd-social-proof .rbd-breakdown-container .rbd-count {
+	font-size: 10px;
+}
+
+.rbd-social-proof .rbd-breakdown-container .rbd-button {
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+.rbd-core-ui.rbd-social-proof .rbd-breakdown-container > div {
+	padding: 8px 16px;
+}
+
+.rbd-core-ui.rbd-social-proof .rbd-breakdown-container > div:first-child {
+	padding-bottom: 5px;
+}
+
+.rbd-core-ui.rbd-social-proof .rbd-breakdown-container > div:last-child {
+	padding-top: 5px;
+}
+
+.rbd-social-proof .rbd-breakdown-container .rbd-bar-container > div {
+	margin: -6px 0;
+	line-height: 1;
+	min-height: 26px;
+	max-height: 28px;
+}
